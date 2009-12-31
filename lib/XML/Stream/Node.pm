@@ -138,7 +138,7 @@ it under the same terms as Perl itself.
 
 use vars qw( $VERSION $LOADED );
 
-$VERSION = "1.22";
+$VERSION = "1.23_01";
 $LOADED = 1;
 
 sub new
@@ -406,7 +406,7 @@ sub copy
     {
         if ($child->get_tag() eq "__xmlstream__:node:cdata")
         {
-            $new_node->add_cdata($self->get_cdata());
+            $new_node->add_cdata($child->children());
         }
         else
         {

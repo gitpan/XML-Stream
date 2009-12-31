@@ -1,0 +1,56 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.61.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 15d61963df469cda6d0e12f471866856dd4b6952 CHANGES
+SHA1 196d154af87fc5e3d911add822f01102f2b924da INFO
+SHA1 8ff23a37b0bf322b7e4e73d5ceeec7f417f5eaa9 LICENSE.LGPL
+SHA1 cd0584c8c15178944fbd3f0bece34b837782c49d MANIFEST
+SHA1 7aec6b076b372a3fa9cd2bb4ae59785d1bb0b47a META.yml
+SHA1 8928801747c656d078c7f69ff3ec88a19d714ac9 Makefile.PL
+SHA1 5147913455418c51a15ed05a87431f2ebac8afbf README
+SHA1 bcf6daf8b9f82cfe313f9f404bb6ab2b474c4af4 lib/XML/Stream.pm
+SHA1 db4d04271a81c835c6ef877070accc8439c123ac lib/XML/Stream/IO/Select/Win32.pm
+SHA1 8060eae2f21b1d518b669c79891f829c50c0ab82 lib/XML/Stream/Namespace.pm
+SHA1 aa415407b45a8f0c3887cf6d51829ec7c86fec88 lib/XML/Stream/Node.pm
+SHA1 7186366258ab164cacec72b3562e2c5e88bc3a6f lib/XML/Stream/Parser.pm
+SHA1 1723560b6da8b91ef929f2aa1b239d60293b2ed3 lib/XML/Stream/Parser/DTD.pm
+SHA1 22558520faeefdf630812eba5dfa5c028b11cd20 lib/XML/Stream/Tree.pm
+SHA1 61048e7f894cf1404045c3a487650f1e41f106c3 lib/XML/Stream/XPath.pm
+SHA1 58f1be02914be76d2984c079a16c95bfff42fb48 lib/XML/Stream/XPath/Op.pm
+SHA1 855a30e9dcecb1b3cf3fe5e3bff1a690dccaabe2 lib/XML/Stream/XPath/Query.pm
+SHA1 e041eff3ad52ea3c30f1fda48fec403d5aa1322d lib/XML/Stream/XPath/Value.pm
+SHA1 4aeb184c9bed26ab6c3be1ebdb8470c0cb353b1f t/0-signature.t
+SHA1 df699ebee5bf1cb549949164b410865cbd4c2e0d t/buildxml.t
+SHA1 e2c38563da2f61b28f051c882942158eff4fe1b1 t/cdata.t
+SHA1 1febe2e170ead4f8f5865f31fd72746c03dd3cce t/lib/Test/Builder.pm
+SHA1 51c49a3df7cc24f3507c97c16f11c0f87e6f51e7 t/lib/Test/More.pm
+SHA1 871dd89f9b3404ee836da317db33c61295035f7c t/lib/Test/Simple.pm
+SHA1 ff41418f62760f89718aa1b11ac953cd8bb40f2e t/load.t
+SHA1 ab53c6def56ac1b9937ef78c9a2c35c9803ce339 t/parse_node.t
+SHA1 add9d3c6d91dc1ca9d66a5c514c604759c88286e t/parse_tree.t
+SHA1 317215868bfd167d3c21ae8e4376d9e03093008f t/quotes.t
+SHA1 7766dfdd99dbaed56e4dcd21150880a2fb3de3dc t/tcpip.t
+SHA1 1091b6ccd6a0d30eab17fe90306f709aae5c1464 t/tcpip2ssl.t
+SHA1 191c3a9c3eeca7b58b096436ee241342e6984d2f t/test.xml
+SHA1 d42030a31535a17e4e8b10a824d8843ec30f8e57 t/xml2config.t
+SHA1 ed9e965ddcc3ad37c8243595b793c112c4476e01 t/xpath.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iEYEARECAAYFAks9MFkACgkQjJ7fFJrTQRdWWgCdGPyS2lgap2po8mYByODBctUI
+ucIAn2Z0ApnALHfIlGvRoLL1NM3P34Ky
+=v0Aj
+-----END PGP SIGNATURE-----

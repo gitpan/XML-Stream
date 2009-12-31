@@ -24,7 +24,7 @@ package XML::Stream;
 
 =head1 NAME
 
-XML::Stream - Creates and XML Stream connection and parses return data
+XML::Stream - Creates an XML Stream connection and parses return data
 
 =head1 SYNOPSIS
 
@@ -36,7 +36,7 @@ XML::Stream - Creates and XML Stream connection and parses return data
   server, send a stream of XML to the server, and receive/parse an XML
   stream from the server.  It is primarily based work for the Etherx XML
   router developed by the Jabber Development Team.  For more information
-  about this project visit http://etherx.jabber.org/stream/.
+  about this project visit http://xmpp.org/protocols/streams/.
 
   XML::Stream gives the user the ability to define a central callback
   that will be used to handle the tags received from the server.  These
@@ -243,7 +243,7 @@ it under the same terms as Perl itself.
 
 =cut
 
-use 5.006_001;
+use 5.008;
 use strict;
 use Sys::Hostname;
 use IO::Socket;
@@ -255,6 +255,7 @@ use Authen::SASL;
 use MIME::Base64;
 use utf8;
 use Encode;
+use XML::Stream::IO::Select::Win32;
 
 $SIG{PIPE} = "IGNORE";
 
@@ -290,7 +291,7 @@ else
 }
 
 
-$VERSION = "1.22";
+$VERSION = "1.23_01";
 $NONBLOCKING = 0;
 
 use XML::Stream::Namespace;
@@ -1160,7 +1161,8 @@ sub OpenStream
         $self->{SOCKETS}->{*STDIN} = $sid;
     }
 
-    delete($self->{SIDS}->{$currsid});
+    delete($self->{SIDS}->{$currsid})
+        unless $currsid eq $sid;
 
     if (exists($self->GetRoot($sid)->{version}) &&
         ($self->GetRoot($sid)->{version} ne ""))
@@ -1210,10 +1212,24 @@ sub OpenFile
                         }
                  );
 
-    $self->{SIDS}->{newconnection}->{select} =
-        new IO::Select($self->{SIDS}->{newconnection}->{sock});
+    # select is not implemented for filehandles on win32 (see perlport)
+    # so we fake it out using XML::Stream::IO::Select::Win32
+    if ( $^O =~ /mswin32/i ) {
+        $self->{SIDS}->{newconnection}->{select}
+            = new XML::Stream::IO::Select::Win32(
+                $self->{SIDS}->{newconnection}->{sock});
 
-    $self->{SELECT} = new IO::Select($self->{SIDS}->{newconnection}->{sock});
+        $self->{SELECT}
+            = new XML::Stream::IO::Select::Win32(
+                $self->{SIDS}->{newconnection}->{sock});
+    }
+    else {
+        $self->{SIDS}->{newconnection}->{select}
+            = new IO::Select($self->{SIDS}->{newconnection}->{sock});
+
+        $self->{SELECT}
+            = new IO::Select($self->{SIDS}->{newconnection}->{sock});
+    }
 
     $self->{SIDS}->{newconnection}->{status} = 0;
 
@@ -2110,17 +2126,26 @@ sub SASLClient
     my $mechanisms = $self->GetStreamFeature($sid,"xmpp-sasl");
 
     return unless defined($mechanisms);
+
+    # Here we assume that if 'to' is available, then a domain is being
+    # specified that does not match the hostname of the jabber server
+    # and that we should use that to form the bare JID for SASL auth.
+    my $domain .=  $self->{SIDS}->{$sid}->{to}
+        ? $self->{SIDS}->{$sid}->{to}
+        : $self->{SIDS}->{$sid}->{hostname};
+
+    my $authname = $username . '@' . $domain;
     
     my $sasl = new Authen::SASL(mechanism=>join(" ",@{$mechanisms}),
                                 callback=>{
-                                           authname => $username."@".$self->{SIDS}->{$sid}->{hostname},
+                                           authname => $authname,
 
                                            user     => $username,
                                            pass     => $password
                                           }
                                );
 
-    $self->{SIDS}->{$sid}->{sasl}->{client} = $sasl->client_new();
+    $self->{SIDS}->{$sid}->{sasl}->{client} = $sasl->client_new('xmpp', $domain);
     $self->{SIDS}->{$sid}->{sasl}->{username} = $username;
     $self->{SIDS}->{$sid}->{sasl}->{password} = $password;
     $self->{SIDS}->{$sid}->{sasl}->{authed} = 0;

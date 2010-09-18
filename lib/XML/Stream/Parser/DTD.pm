@@ -48,15 +48,16 @@ Currently maintained by Darian Anthony Patrick.
 
 =head1 COPYRIGHT
 
-This module is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Copyright (C) 1998-2004 Jabber Software Foundation http://jabber.org/
+
+This module licensed under the LGPL, version 2.1.
 
 =cut
 
 use strict;
 use vars qw( $VERSION );
 
-$VERSION = "1.23";
+$VERSION = "1.23_02";
 
 sub new
 {

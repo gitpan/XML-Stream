@@ -1,4 +1,3 @@
-use lib "t/lib";
 use Test::More tests=>4;
 
 BEGIN{ use_ok("XML::Stream","Node"); }
@@ -9,6 +8,8 @@ isa_ok( $stream, "XML::Stream" );
 
 SKIP:
 {
+    skip "No network communication allowed", 1 if ($ENV{NO_NETWORK});
+
     my $sock = IO::Socket::INET->new(PeerAddr=>'jabber.org:5222');
     skip "Cannot open connection (maybe a firewall?)",1 unless defined($sock);
     

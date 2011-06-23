@@ -24,9 +24,10 @@ package XML::Stream::XPath;
 
 use 5.008;
 use strict;
+use warnings;
 use vars qw( $VERSION %FUNCTIONS );
 
-$VERSION = "1.23_04";
+$VERSION = "1.23_05";
 
 use XML::Stream::XPath::Value;
 use XML::Stream::XPath::Op;

@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.61.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,25 +15,26 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 eace214555b5f19bdfa3cc6912733d00b7c20306 Build.PL
-SHA1 eb0866cea9989a031f846405c75377d4bc3af8a0 CHANGES
+SHA1 3a7c4e222a1bf615793d2ffc213b0f1d562a51b1 CHANGES
 SHA1 196d154af87fc5e3d911add822f01102f2b924da INFO
-SHA1 03e6c1a092c3e4320194152ecf204f70887c1c22 LICENSE
-SHA1 f7c085f8bc626f58f197714b480a0bdf12f0e587 MANIFEST
-SHA1 63d6766ead875312fa3be0cf985e88ca154cd1a8 META.yml
-SHA1 63731b9cfd165144e66ccb6d7871c78c2424360f Makefile.PL
-SHA1 5147913455418c51a15ed05a87431f2ebac8afbf README
-SHA1 0a1c39db627177154d877e6767fe363bdc2e00c9 lib/XML/Stream.pm
-SHA1 57d9c4271204223835d9df2fd2d99335f27baa13 lib/XML/Stream/IO/Select/Win32.pm
-SHA1 ad15e2819028861b719e18a9b319111f103168dc lib/XML/Stream/Namespace.pm
-SHA1 ff6e63eee31936c770ff7371662e2581582d36f0 lib/XML/Stream/Node.pm
-SHA1 85ff9068ea423af0e5e5af8cf86b2c4957d18409 lib/XML/Stream/Parser.pm
-SHA1 8f9cf4783528e53e0bcaa114f70a2fb430426aaa lib/XML/Stream/Parser/DTD.pm
+SHA1 e6382a2e4814837e0034b5b1fe6338d75068d7d8 LICENSE
+SHA1 14cbe18243296497226fedb5722a86383d6ec9ba MANIFEST
+SHA1 d19fee093ce30ce3b66ff6e40a6d83b201cd5842 META.json
+SHA1 b1319d742993b7be39c132341602c0e1632d89de META.yml
+SHA1 c6d88a9a28f4318a0947edf501f829e29be51c8f Makefile.PL
+SHA1 428d2636097a3d83e4d458ed1d7bfb29079c7b4f README
+SHA1 7afa552febc4e6229e17341f57b8b6c1419bd810 lib/XML/Stream.pm
+SHA1 f227516ea6f37bb5bb22cb2ab986b4ee08bc2478 lib/XML/Stream/IO/Select/Win32.pm
+SHA1 2ce0fd20b780d830fcd4f87c54551c930ec1d1da lib/XML/Stream/Namespace.pm
+SHA1 79932aa217893b24ebee92fb22495d7de126f227 lib/XML/Stream/Node.pm
+SHA1 3acff48170256b6968bdbf38a9655c1e24747784 lib/XML/Stream/Parser.pm
+SHA1 19da2a40757e3bda5740886cfb8609b423123a4d lib/XML/Stream/Parser/DTD.pm
 SHA1 ffe36acb769a8408c0c82b9f2f9b089ae8a50831 lib/XML/Stream/Tools.pm
-SHA1 a928b87777c068d019532e926a767fac901ef525 lib/XML/Stream/Tree.pm
-SHA1 a23167b2fee5058aed3a413aa54c6fe8ba8a7fe9 lib/XML/Stream/XPath.pm
-SHA1 6bca6e836c6615c7f87a661eabd364d057497d64 lib/XML/Stream/XPath/Op.pm
-SHA1 1aac7d7850d933fa5c4c13dd85d2341a1f4a32a2 lib/XML/Stream/XPath/Query.pm
-SHA1 b9801b14b710b8b7832e717eaa525e40734251de lib/XML/Stream/XPath/Value.pm
+SHA1 f60ec6dae9e35865fe1535a0b7e4a9964576b3fb lib/XML/Stream/Tree.pm
+SHA1 48072fb5a3a550e2294270d611c653718686249e lib/XML/Stream/XPath.pm
+SHA1 e14a04817d74e220062cda3cbf7630f29ef7625c lib/XML/Stream/XPath/Op.pm
+SHA1 c6e1fe8aaddc38ed7f237043bf7edbe64e41576d lib/XML/Stream/XPath/Query.pm
+SHA1 83aa1fb7f70499271edb94055a0eee7bc5abb7dd lib/XML/Stream/XPath/Value.pm
 SHA1 850e2740a75782524068bf075c62dce17b6097d9 t/0-signature.t
 SHA1 2d39967d76139beb8af25377d4a6c51d7bcb5b76 t/buildxml.t
 SHA1 ed3c8cf8b15161f0584c3b37a66de39963358e35 t/cdata.t
@@ -49,9 +50,9 @@ SHA1 191c3a9c3eeca7b58b096436ee241342e6984d2f t/test.xml
 SHA1 734b87f26e0f144ed9ad207649c893d153495885 t/xml2config.t
 SHA1 a6848d74df02bbe5be2096df4f6256c3231e47b1 t/xpath.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1
 
-iEYEARECAAYFAk4ltZ0ACgkQjJ7fFJrTQRf85wCgjqAaheXP++PVYgHDa7jewVb6
-QroAn1ptfkHNr2YM+1vrbGM15qvTI6i0
-=8/Jm
+iEYEARECAAYFAlSSXpkACgkQjJ7fFJrTQRdpOwCeMGK5yd46N94vL/rot24tcEQ5
+F1YAoLO4Nk3qpVDNV8fF7ALwxAiTIHA1
+=svxu
 -----END PGP SIGNATURE-----
